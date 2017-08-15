@@ -5,6 +5,56 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne={
+    title:'Article One | Deepak Kumar',
+    heading:'Article One',
+    date:'Sep 05, 2016',
+    content:`
+           <p>
+            This is the First Article for IMAD Training.         This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.
+        </p>
+        <p>
+            This is the First Article for IMAD Training.         This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.
+        </p>
+    `
+}
+
+function createTemplate(data){
+    var title=data.titale;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmlTemplate=
+        `
+     <html>
+    <head>
+        <title>
+                $[title]
+        </title>
+        <meta name="viewport" content="width-device-width, initial-scale-1" />
+        <link rel="stylesheet" type="text/css" href="ui/style.css">
+    
+    </head>
+    <body>
+        <div class="content">
+            <h1>$[heading]</h1>
+            <a href="/">Home</a>
+            <hr/>
+            <p>Date: $[date]</p>
+            <p>
+                $[content]
+            </p>
+    
+        </div>
+    </body>
+    
+    </html>
+       
+        `;
+    return htmlTemplate;
+}
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -18,7 +68,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/article-one',function(rea,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplate(articleOne));
     
 });
 
