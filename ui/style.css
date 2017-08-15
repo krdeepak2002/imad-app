@@ -19,4 +19,9 @@ body {
 .img-medium {
     height: 200px;
 }
+.content{
+    color:grey;
+    max-width:800px;
+            
+}
 
