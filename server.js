@@ -17,40 +17,44 @@ var articleOne={
             This is the First Article for IMAD Training.         This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.        This is the First Article for IMAD Training.
         </p>
     `
-}
+};
 
 function createTemplate(data){
     var title=data.titale;
     var heading=data.heading;
     var date=data.date;
     var content=data.content;
-    var htmlTemplate=
-        `
-     <html>
-    <head>
-        <title>
-                $[title]
-        </title>
-        <meta name="viewport" content="width-device-width, initial-scale-1" />
-        <link rel="stylesheet" type="text/css" href="ui/style.css">
+    var htmlTemplate= 
+    `
+<html>
+<head>
+    <title>
+        $[title]
+    </title>
+    <meta name="viewport" content="width-device-width, initial-scale-1" />
+    <link rel="stylesheet" type="text/css" href="ui/style.css">
+
+</head>
+<body>
+    <div class="content">
+        <h1>
+            $[heading]        
+        </h1>
+        <a href="/">Home</a>
+        <hr/>
+        <p>Date: 
+            $[date]
+        </p>
+        <p>
+            $[content]
+        </p>
+    </div>
+</body>
+
+</html>
     
-    </head>
-    <body>
-        <div class="content">
-            <h1>$[heading]</h1>
-            <a href="/">Home</a>
-            <hr/>
-            <p>Date: $[date]</p>
-            <p>
-                $[content]
-            </p>
-    
-        </div>
-    </body>
-    
-    </html>
-       
-        `;
+    `;
+ 
     return htmlTemplate;
 }
 
